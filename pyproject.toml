@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyterlab-pwa"
+version = "0.1.1"
+description = "PWA (Progressive Web App) support for JupyterLab — manifest, service worker, installability"
+readme = "README.md"
+license = "BSD-3-Clause"
+authors = [
+    { name = "Chung Chan", email = "chung.chan@cityu.edu.hk" },
+]
+keywords = ["jupyter", "jupyterlab", "manifest", "pwa", "service-worker"]
+classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "jupyter-server>=2.0",
+    "jupyterlab>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dive4dec/jupyterlab-pwa"
+
+[tool.hatch.build]
+include = [
+    "jupyterlab_pwa/**/*.py",
+    "jupyterlab_pwa/**/*.js",
+    "jupyterlab_pwa/**/*.png",
+    "jupyterlab_pwa/**/*.json",
+]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_pwa/etc/jupyter_server_config.d/jupyterlab_pwa.json" = "etc/jupyter/jupyter_server_config.d/jupyterlab_pwa.json"
