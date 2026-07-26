@@ -109,6 +109,7 @@ def _build_pwa_tags(base_url: str) -> str:
     manifest_url = base_url + "pwa/manifest.json"
     return (
         '<link rel="manifest" href="' + manifest_url + '">\n'
+        '  <meta name="mobile-web-app-capable" content="yes">\n'
         '  <meta name="apple-mobile-web-app-capable" content="yes">\n'
         '  <meta name="apple-mobile-web-app-status-bar-style" content="default">\n'
         '  <meta name="apple-mobile-web-app-title" content="JupyterLab">\n'
